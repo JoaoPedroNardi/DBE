@@ -24,22 +24,22 @@
 						<p:inputText 
 							id="e-mail" 
 							type="text"
-							value="#{}"
+							value="#{userBean.user.email}"
 							required="true"
 							requiredMessage="O e-mail é obrigatório"
 						>
-							<f:validateLength minimum="10" maximum="255" />
+							//<f:validateLength minimum="10" maximum="255" />
 						</p:inputText>
 					</div>
 					<div class="p-field">
 						<label for="password">Password</label>
 						<p:password 
 							id="password" 
-							value="#{}"
+							value="#{userBean.user.password}"
 							required="true"
 							requiredMessage="A senha é obrigatório"
 						>
-							<f:validateDoubleRange minimum="0"/>
+							//<f:validateDoubleRange minimum="0"/>
 						</p:password>
 					</div>
 					
@@ -52,7 +52,7 @@
 						icon="pi pi-user-plus" 
 						value="Create Account"
 						style="margin-left: .5em" 
-						action=""
+						action="user_new.xhtml"
 					/>
 				</f:facet>
 			</p:card>

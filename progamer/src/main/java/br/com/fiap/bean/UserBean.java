@@ -24,10 +24,10 @@ public class UserBean {
 	
 	public String save(){
 		
-		dao.create(user);
+		dao.create(getUser());
 		
 		FacesContext.getCurrentInstance().addMessage(null, 
-				new FacesMessage("Setup cadastrado com sucesso"));
+				new FacesMessage("Usuário cadastrado com sucesso"));
 		
 		return "users";
 	}
@@ -36,17 +36,21 @@ public class UserBean {
 		return dao.listAll();
 	}
 	
-	public void login() {
+	public String login() {
 		// verificar as credencias
 		if(dao.exist(user)) return "setups";
-		
+		// se existir, encaminhar para home
 		FacesContext.getCurrentInstance().addMessage(null, 
 				new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login invalido", "Erro"));
-		// se existir, encaminhar para home
-		return "login";
 		//senao, voltar para login
-	}
+	}			return "login";
 	
+	public User getUser() {
+		return user;
+	}
 
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 }
