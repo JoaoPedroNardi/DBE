@@ -14,29 +14,54 @@
 
 		<h:form>
 			<div class="card" style="margin: 1em">
-				<p:dataTable var="setup" value="#{setupBean.all}">
-					<p:column headerText="image">
-						<img 
-							src="#{request.contextPath}#{setup.imagePath}"
-							style="width: 150px"
-						/>
-					</p:column>
-					<p:column headerText="id">
-						<h:outputText value="#{setup.id}" />
-					</p:column>
+				<p:dataView var="setup" value="#{setupBean.all}" paginator="true"
+					rowsPerPageTemplate="6,12,16"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					gridIcon="pi pi-th-large" listIcon="pi pi-bars">
 
-					<p:column headerText="Name">
-						<h:outputText value="#{setup.name}" />
-					</p:column>
+					<p:dataViewGridItem>
+						<div class="product-grid-item card border-1">
+							<div class="product-grid-item-top"></div>
+							<div class="product-grid-item-content">
+								<img src="#{request.contextPath}#{setup.imagePath}"
+									style="width: 150px" 
+								/>
+								<div class="product-name">#{setup.name}</div>
+								<div class="product-description">#{setup.description}</div>
+								<p:rating readonly="true" value="3" />
+							</div>
+							<div class="product-grid-item-bottom">
+								<h:outputText value="#{setup.price}" styleClass="product-price">
+									<f:convertNumber currencySymbol="$" type="currency" />
+								</h:outputText>
+								<p:commandButton type="button" value="Details"
+									icon="pi pi-search">
+								</p:commandButton>
+							</div>
+						</div>
+					</p:dataViewGridItem>
 
-					<p:column headerText="Description">
-						<h:outputText value="#{setup.description}" />
-					</p:column>
-
-					<p:column headerText="Price">
-						<h:outputText value="#{setup.price}" />
-					</p:column>
-				</p:dataTable>
+					<p:dataViewListItem>
+						<div class="product-list-item">
+							<img src="#{request.contextPath}#{setup.imagePath}"
+								style="width: 150px" 
+							/>
+							<div class="product-list-detail">
+								<div class="product-name">#{setup.name}</div>
+								<div class="product-description">#{setup.description}</div>
+								<p:rating readonly="true" value="3" />
+							</div>
+							<div class="product-list-action">
+								<h:outputText value="#{setup.price}" styleClass="product-price">
+									<f:convertNumber currencySymbol="$" type="currency" />
+								</h:outputText>
+								<p:commandButton type="button" value="Details"
+									icon="pi pi-search">
+								</p:commandButton>
+							</div>
+						</div>
+					</p:dataViewListItem>
+				</p:dataView>
 			</div>
 		</h:form>
 

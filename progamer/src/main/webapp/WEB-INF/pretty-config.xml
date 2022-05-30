@@ -4,18 +4,18 @@
                       http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 
 	<url-mapping id="home">
-		<pattern value="/setups" />
+		<pattern value="/" />
 		<view-id value="setups.xhtml" />
 	</url-mapping>
 	
 	<url-mapping id="profile">
 		<pattern value="/profile" />
 		<view-id value="profile.xhtml" />
-	</url-mapping>
+	</url-mapping>	
 	
 	<url-mapping id="newsetup">
 		<pattern value="/newsetup" />
 		<view-id value="setup_new.xhtml" />
-	</url-mapping>
+	</url-mapping>	
 
 </pretty-config>

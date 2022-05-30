@@ -12,9 +12,9 @@ public class Setup {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name = "Meu setup";
-	private String description = "Teste de descrição";
-	private BigDecimal price = new BigDecimal(200);
+	private String name;
+	private String description;
+	private BigDecimal price;
 	private String imagePath;
 	
 	public Long getId() {

@@ -8,20 +8,20 @@
 <ui:composition template="/_template.xhtml">
 	<ui:define name="content">
 	
-		<p:messages id="msg">
-			<p:autoUpdate/>
+		<p:messages id="msg"> 
+			<p:autoUpdate /> 
 		</p:messages>
 		
 		<!-- FORM -->
 		<h:form enctype="multipart/form-data">
 			<p:card style="width: 25em; margin: 1em auto">
 				<f:facet name="title">
-	        New Setup
+	        Novo Cadastro
 	    </f:facet>
 
 				<div class="ui-fluid">
 					<div class="p-field">
-						<label for="name">Name</label>
+						<label for="name">Nome</label>
 						<p:inputText 
 							id="name" 
 							type="text" 
@@ -29,46 +29,49 @@
 							required="true"
 							requiredMessage="O campo nome é obrigatório"
 						>
-							<f:ajax event="blur" render="msg"/>
+							<f:ajax event="blur" render="msg" />
 						</p:inputText>
 					</div>
 					<div class="p-field">
-						<label for="description">Description</label>
+						<label for="description">Descrição</label>
 						<p:inputTextarea 
 							id="description" 
 							type="text"
-							value="#{setupBean.setup.description}"
+							value="#{setupBean.setup.description}" 
 							required="true"
 							requiredMessage="A descrição é obrigatória"
-							validatorMessage="A descrição deve ter pelo menos 10 caracteres"							
+							validatorMessage="A descrição deve ter pelo menos 10 caracteres"
 						>
 							<f:validateLength minimum="10" maximum="255" />
-							<f:ajax event="blur" render="msg"/>
+							<f:ajax event="blur" render="msg" />
 						</p:inputTextarea>
 					</div>
 					<div class="p-field">
-						<label for="price">Price</label>
+						<label for="price">Preço</label>
 						<p:inputNumber 
 							id="price" 
 							value="#{setupBean.setup.price}"
-							symbol="R$ " decimalSeparator="," thousandSeparator="." 
+							symbol="R$ " 
+							decimalSeparator="," 
+							thousandSeparator="."
 							required="true"
 							requiredMessage="O preço é obrigatório"
 							validatorMessage="O preço não pode ser negativo"
 						>
-							<f:validateDoubleRange minimum="0"/>
-							<f:ajax event="blur" render="msg"/>
+							<f:validateDoubleRange minimum="0" />
+							<f:ajax event="blur" render="msg" />
 						</p:inputNumber>
 					</div>
 					
-					<div classe="p-field">
-						<label for="image">Image file: </label>
+					<div class="p-field">
+						<label for="image">Imagem do produto: </label>
 						<p:fileUpload 
 							id="image" 
-							mode="simple"
+							mode="simple" 
 							skinSimple="true"
 							value="#{setupBean.image}"
 						/>
+						
 					</div>
 					
 				</div>

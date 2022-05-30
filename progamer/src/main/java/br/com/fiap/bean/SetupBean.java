@@ -20,20 +20,20 @@ import br.com.fiap.model.Setup;
 @RequestScoped
 public class SetupBean {
 
-	private Setup setup = new Setup();	
+	private Setup setup = new Setup();
+	
 	private UploadedFile image;
 	
-	// CDI
-	@Inject //injeção de dependência
+	@Inject 
 	private SetupDao dao;
 	
-	public String save() throws IOException{
+	public String save() throws IOException {
 		System.out.println(this.setup);
 		
-		ServletContext servletContext =(ServletContext) FacesContext
-				.getCurrentInstance()
-				.getExternalContext()
-				.getContext();
+		ServletContext servletContext = (ServletContext) FacesContext
+			.getCurrentInstance()
+			.getExternalContext()
+			.getContext();
 		String path = servletContext.getRealPath("/");
 		
 		FileOutputStream out = 

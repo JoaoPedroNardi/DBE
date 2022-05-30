@@ -25,7 +25,7 @@ public class UserDao {
 	public List<User> listAll() {
 		
 		TypedQuery<User> query = 
-				manager.createQuery("SELECT s FROM User u", User.class);
+				manager.createQuery("SELECT u FROM User u", User.class);
 		
 		return query.getResultList();
 		
@@ -46,5 +46,11 @@ public class UserDao {
 		}
 		
 	}
+	
+	
+	
+	
+	
+	
 
 }
